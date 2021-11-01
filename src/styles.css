@@ -1,0 +1,15 @@
+ul {
+  list-style: none;
+}
+
+.country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.country-information {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
