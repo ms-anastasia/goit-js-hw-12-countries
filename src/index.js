@@ -6,7 +6,8 @@ import debounce from 'lodash.debounce';
 
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
 
 const refs = {
 cardContainer: document.querySelector ('.js-card-container'),
@@ -39,15 +40,14 @@ function renderCountry(country) {
         });
      }
 }
-function fetchError() {
-    defaultModules.set(PNotifyMobile, {});
-                alert({
-                    text: '! Information not found!',
-                    addClass: 'notify',
-                    maxOpen: 1,
-                    maxStrategy: 'close',
-                    delay: 2000,
-                });
+function fetchError(error) {
+    alert({
+        text: '! Information not found! Please, enter correct data',
+        addClass: 'notify',
+        maxOpen: 1,
+        maxStrategy: 'close',
+        delay: 2000,
+    });
 }
 function clearContainer() {
     refs.cardContainer.innerHTML = '';
